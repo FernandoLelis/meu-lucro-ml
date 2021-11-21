@@ -29,7 +29,7 @@ const Form = () => {
     <form onSubmit={onSubmit}>
       <div className="boxForm">
         <label htmlFor="name">Nome:</label>
-        <input type="text" name="name" id="name" placeholder="Ex: Fone de Ouvido" onChange={onChange} />
+        <input type="text" name="nome" id="nome" placeholder="Ex: Fone de Ouvido" onChange={onChange} />
       
         <label htmlFor="custo">Custo:</label>
         <input type="number" name="custo" id="custo" placeholder="Ex: R$ 45,90" onChange={onChange} />
@@ -71,16 +71,15 @@ const Form = () => {
           <input type="checkbox" name="freteGratis" id="freteGratis" onChange={onChange} /> Frete Grátis
         </label>
       
-      </div>
+        </div>
+      </form>
 
 
       
-      <div className="boxRes">
-        
-      </div>
-    </form>
+
+    
     </div>
-    );
+  );
 }
 
 export default Form;
