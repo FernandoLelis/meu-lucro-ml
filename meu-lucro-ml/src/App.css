@@ -37,41 +37,6 @@ body {
     }
 }
 
-.boxForm {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    max-width: 600px;
-    min-height: 200px;
-    background-color: white;
-    padding: 20px 30px;
-    margin: -50px auto;
-    border-radius: 8px;
-    box-shadow: 3px 3px 10px rgba(75, 66, 66, 0.11);
-}
-
-.boxForm label {
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.boxForm input, select {
-    border: 1px solid;
-    border-radius: 3px;
-    border-color: #5a5a5a;
-    background-color: #fff;
-    height: 25px;
-    padding: 0px 5px;   
-}
-
-.boxForm input[type="radio"], input[type="checkbox"] {
-    margin-top: -1px;
-    vertical-align: middle;
-    margin: 0px 0px 0px 5px;
-  }
 
 .boxRes {
     position: absolute;

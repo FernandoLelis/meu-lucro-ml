@@ -1,11 +1,11 @@
 import React from "react";
-import BoxForm from "./BoxForm";
 
-export default function BoxRes() {
+export default function BoxRes(props) {
 
     return (
-       <div>
-           
-       </div>
+        <div className="boxRes">
+            Nome: {props.nome} <br />
+            Custo: {props.custo}  
+        </div> 
     );
 }

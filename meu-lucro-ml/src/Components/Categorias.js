@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import '../App.css';
+import './Categorias.css';
 
 export default function Categorias() {
 
     const [categoria, setCategoria] = useState('')
 
     return(
-        <div className="formcate">
         <form>
-            <label htmlFor="categoria">Categoria:</label>
+        <div className="cat">
+            <label htmlFor="categoria">Categoria:</label> <br />
             <select name="categoria" id="categoria" value={categoria} onChange={(ev) => setCategoria(ev.target.value)}>
                 <option value="">Selecione</option>
                 <option value="celularesSmartphones">Celulares e Smartphones</option>
@@ -32,7 +32,14 @@ export default function Categorias() {
                 <option value="caixasSomAutofalantes">Caixas de Som e Autofalantes</option>
                  <option value="mediaStreaming">Media Streaming</option>
             </select>
-        </form>
+
+            <label htmlFor="tipo">Tipo:<br />
+            <input type="radio" name="tipo" id="tipo" value="classico" checked /> Clássico
+            <input type="radio" name="tipo" id="tipo" value="Premium" /> Premium
+        </label>
+
+        
         </div>
+        </form>
     )
 }

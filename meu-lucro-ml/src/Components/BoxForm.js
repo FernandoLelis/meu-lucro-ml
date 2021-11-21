@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import FormCate from './FormCate'
+import Categorias from './Categorias'
+import BoxRes from "./BoxRes";
+import './BoxForm.css';
 
-import App from "../App";
-
-export default function BoxForm() {
+export default function BoxForm(props) {
 
     const [nome, setNome] = useState('')
     const [custo, setCusto] = useState('')
@@ -11,6 +11,7 @@ export default function BoxForm() {
 
     return(
         <div>
+            <form>
             <div className="boxForm">
                 <label htmlFor="nome">Nome:</label>
                 <input 
@@ -31,18 +32,18 @@ export default function BoxForm() {
                     placeholder="Ex: 45.90" 
                     onChange={(ev) => setCusto(ev.target.value)} 
                 />
-
+            
+                <Categorias />
                 
-                <FormCate />
 
 
 
             </div>
-
-            <div className="boxRes">
-                Nome: {nome} <br />
-                Custo: {custo}  
-            </div>
+            </form>
+            <BoxRes 
+                nome={nome}
+                custo={custo}
+            />
 
         </div>
     );
