@@ -34,7 +34,7 @@ export default function Categorias() {
             </select>
 
             <label htmlFor="tipo">Tipo:<br />
-            <input type="radio" name="tipo" id="tipo" value="classico" checked /> Clássico
+            <input type="radio" name="tipo" id="tipo" value="classico" /> Clássico
             <input type="radio" name="tipo" id="tipo" value="Premium" /> Premium
         </label>
 

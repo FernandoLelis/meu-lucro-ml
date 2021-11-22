@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Categorias from './Categorias'
 import BoxRes from "./BoxRes";
 import './BoxForm.css';
+import ValorFrete from "./ValorFrete";
 
 export default function BoxForm(props) {
 
@@ -34,6 +35,8 @@ export default function BoxForm(props) {
                 />
             
                 <Categorias />
+                <ValorFrete />
+                
                 
 
 
