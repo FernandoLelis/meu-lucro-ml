@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 import './Categorias.css';
 
-export default function Categorias() {
+export default function Categorias(props) {
 
-    const [categoria, setCategoria] = useState('')
+    const [selectCat, setSelectCat] = useState('')
+
+    const [categorias, setCategorias] = useState({
+        celularesSmartphones:{
+            classico: 0.11,
+            premium: 0.16 
+        },
+        suplementos:{
+            classico: 0.13,
+            premium: 0.16 
+        }
+    })
 
     return(
-        <form>
         <div className="cat">
-            <label htmlFor="categoria">Categoria:</label> <br />
-            <select name="categoria" id="categoria" value={categoria} onChange={(ev) => setCategoria(ev.target.value)}>
+            <label htmlFor="selectCat">Categoria:</label> <br />
+            <select name="selectCat" id="selectCat" value={selectCat} onChange={(ev) => setSelectCat(ev.target.value)} >
                 <option value="">Selecione</option>
                 <option value="celularesSmartphones">Celulares e Smartphones</option>
                 <option value="suplementos">Suplementos</option>
@@ -38,8 +48,7 @@ export default function Categorias() {
             <input type="radio" name="tipo" id="tipo" value="Premium" /> Premium
         </label>
 
-        
+        <div>{categorias.suplementos.classico}</div>
         </div>
-        </form>
     )
 }

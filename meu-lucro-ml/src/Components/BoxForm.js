@@ -4,9 +4,8 @@ import BoxRes from "./BoxRes";
 import './BoxForm.css';
 import ValorFrete from "./ValorFrete";
 
-export default function BoxForm(props) {
+export default function BoxForm() {
 
-    const [nome, setNome] = useState('')
     const [custo, setCusto] = useState('')
 
 
@@ -14,16 +13,6 @@ export default function BoxForm(props) {
         <div>
             <form>
             <div className="boxForm">
-                <label htmlFor="nome">Nome:</label>
-                <input 
-                    type="text" 
-                    name="nome" 
-                    id="nome" 
-                    value={nome}
-                    placeholder="Ex: Fone de Ouvido"
-                    onChange={(ev) => setNome(ev.target.value)} 
-                />
-
                 <label htmlFor="custo">Custo R$:</label>
                 <input 
                     type="number" 
@@ -44,8 +33,8 @@ export default function BoxForm(props) {
             </div>
             </form>
             <BoxRes 
-                nome={nome}
                 custo={custo}
+                
             />
 
         </div>

@@ -4,9 +4,9 @@ import './ValorFrete.css'
 export default function ValorFrete() {
 
     const [price, setPrice] = useState('')
+    const [priceFrete, setPriceFrete] = useState('')
 
     return(
-        <form>
             <div className="valorFrete">
                 <label htmlFor="price">Valor do Anuncio R$:</label>
                 <input 
@@ -16,17 +16,24 @@ export default function ValorFrete() {
                     placeholder="Ex: 80.90"   
                     onChange={(ev) => setPrice(ev.target.value)}
                 />
-                    
-                <div>
-                <label htmlFor="freteGratis">
+                {price < 79 ?
+                <span>
+                    <label htmlFor="freteGratis">
                     <input 
                         type="checkbox" 
                         name="freteGratis"
                     /> 
-                    Frete Grátis
-                </label>
-                </div>
+                        Frete Grátis
+                    </label>
+                </span> : <span><label htmlFor="priceFrete">Valor do Frete R$:</label>
+                <input 
+                    type="number" 
+                    name="priceFrete"
+                    value={priceFrete}
+                    placeholder="Ex: 19.45"   
+                    onChange={(ev) => setPriceFrete(ev.target.value)}
+                /></span>}
+                
             </div>
-        </form>
     )
 }
