@@ -20,7 +20,7 @@
     font-weight: 500;
 }
 
-.boxForm input {
+.boxForm input, select {
     border: 1px solid;
     border-radius: 3px;
     border-color: #5a5a5a;

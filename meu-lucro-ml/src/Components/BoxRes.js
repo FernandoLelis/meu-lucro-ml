@@ -8,7 +8,7 @@ export default function BoxRes(props) {
             <div className="card">
                 <div className="price">
                     <div>Valor do Anuncio:</div>
-                    <div className="resCal">R$ --,--</div>
+                    <div className="resCal">R$ {props.idTipo}-</div>
                 </div>
                 <div className="bruto">
                     <div>Lucro Bruto: </div>

@@ -1,20 +1,28 @@
 import React, { useState } from "react";
 import './Categorias.css';
 
+
+const categorias = {
+    celularesSmartphones:{
+        classico: 0.11,
+        premium: 0.16 
+    },
+    suplementos:{
+        classico: 0.13,
+        premium: 0.16 
+    }
+};
+
+console.log(categorias)
+
 export default function Categorias(props) {
 
-    const [selectCat, setSelectCat] = useState('')
+ 
+    const [selectCat, setSelectCat] = useState('');
 
-    const [categorias, setCategorias] = useState({
-        celularesSmartphones:{
-            classico: 0.11,
-            premium: 0.16 
-        },
-        suplementos:{
-            classico: 0.13,
-            premium: 0.16 
-        }
-    })
+    const [tipo, setTipo] = useState('');
+
+ 
 
     return(
         <div className="cat">
@@ -44,11 +52,13 @@ export default function Categorias(props) {
             </select>
 
             <label htmlFor="tipo">Tipo:<br />
-            <input type="radio" name="tipo" id="tipo" value="classico" /> Clássico
-            <input type="radio" name="tipo" id="tipo" value="Premium" /> Premium
+            <input type="radio" name="tipo" id="tipo" value="classico" onChange={(ev) => setTipo(ev.target.value)} /> Clássico
+            <input type="radio" name="tipo" id="tipo" value="Premium" onChange={(ev) => setTipo(ev.target.value)} /> Premium
         </label>
-
-        <div>{categorias.suplementos.classico}</div>
+        
+        <div>{selectCat}</div>
+        <div>{tipo}</div>
+        <div>{}</div>
         </div>
     )
 }

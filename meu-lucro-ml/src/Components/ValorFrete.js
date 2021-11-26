@@ -16,23 +16,23 @@ export default function ValorFrete() {
                     placeholder="Ex: 80.90"   
                     onChange={(ev) => setPrice(ev.target.value)}
                 />
-                {price < 79 ?
-                <span>
-                    <label htmlFor="freteGratis">
+                <label htmlFor="freteGratis">
                     <input 
                         type="checkbox" 
                         name="freteGratis"
                     /> 
                         Frete Grátis
-                    </label>
-                </span> : <span><label htmlFor="priceFrete">Valor do Frete R$:</label>
+                </label>
+                <label htmlFor="priceFrete">Valor do Frete R$:</label>
                 <input 
                     type="number" 
                     name="priceFrete"
                     value={priceFrete}
                     placeholder="Ex: 19.45"   
                     onChange={(ev) => setPriceFrete(ev.target.value)}
-                /></span>}
+                />
+
+    
                 
             </div>
     )
