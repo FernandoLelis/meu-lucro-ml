@@ -26,5 +26,41 @@
     border-color: #5a5a5a;
     background-color: #fff;
     height: 25px;
-    padding: 0px 5px;   
+    padding: 0px 5px; 
+    outline: none;
 }
+
+.cat {
+    width: 100%;
+    flex-direction: column;
+    padding: 10px 0;
+    margin: 0;
+}
+.cat label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cat select {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid;
+    border-radius: 3px;
+    border-color: #5a5a5a;
+    background-color: #fff;
+    height: 25px;
+    padding: 3px 5px;   
+    outline: none;
+}
+
+.cat input[type="radio"] {
+    margin-top: -1px;
+    vertical-align: middle;
+    margin: 0px 0px 0px 10px;
+    outline: none;
+  }
