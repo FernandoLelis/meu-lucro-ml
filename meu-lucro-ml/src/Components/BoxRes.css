@@ -1,5 +1,5 @@
 .boxRes {
-    position: sticky;
+    position: fixed;
     bottom: 0;
     margin: 0px;
     padding: 0px;
@@ -12,15 +12,15 @@
  .card {
     display:table;
     width: 80%;
-    max-width: 600px;  
-    padding: 0 20px;
+    max-width: 500px;  
+    padding: 0 5px;
     margin: auto;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(10, 0, 50);
     
  }
 
- .price {
+ .cardRes {
      display: table-cell;
      flex-direction: column;
      margin-top: -4;      
@@ -29,25 +29,7 @@
      text-align: center;
  }
 
- .bruto {
-     display: table-cell;
-     flex-direction: column;
-     margin-top: -4;
-     padding: 15px 10px;    
-     height: 80px;
-     text-align: center;
- }
-
- .liquido {
-     display: table-cell;
-     flex-direction: column;
-     margin-top: -4;
-     padding: 15px 10px;    
-     height: 80px;
-     text-align: center;
- }
-
- .resCal {
+ .CardCal {
      font-size: 1.5rem;
      font-weight: 700;
  }

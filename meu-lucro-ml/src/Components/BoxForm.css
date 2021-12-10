@@ -3,8 +3,8 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    width: 80%;
-    max-width: 600px;
+    width: 400px;
+    max-width: 400px;
     min-height: 200px;
     background-color: white;
     padding: 20px 30px;
@@ -13,14 +13,14 @@
     box-shadow: 3px 3px 10px rgba(75, 66, 66, 0.11);
 }
 
-.boxForm label {
+label {
     margin-top: 10px;
     margin-bottom: 5px;
     font-size: 14px;
     font-weight: 500;
 }
 
-.boxForm input, select {
+input {
     border: 1px solid;
     border-radius: 3px;
     border-color: #5a5a5a;
@@ -30,24 +30,11 @@
     outline: none;
 }
 
-.cat {
-    width: 100%;
-    flex-direction: column;
-    padding: 10px 0;
-    margin: 0;
-}
-.cat label {
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-size: 14px;
-    font-weight: 500;
-}
 
-.cat select {
+select {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 5px;
     margin-bottom: 10px;
     border: 1px solid;
     border-radius: 3px;
@@ -58,9 +45,16 @@
     outline: none;
 }
 
-.cat input[type="radio"] {
+input[type="radio"]  {
     margin-top: -1px;
     vertical-align: middle;
     margin: 0px 0px 0px 10px;
     outline: none;
+    padding: 0;
+  }
+
+input[type="checkbox"] {
+    margin-top: -1px;
+    vertical-align: middle;
+    margin: 0px 5px 0px 0px;
   }

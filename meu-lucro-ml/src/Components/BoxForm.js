@@ -1,97 +1,128 @@
 import React, { useState } from "react";
 import BoxRes from "./BoxRes";
 import './BoxForm.css';
-import ValorFrete from "./ValorFrete";
-import Categorias from "./Categorias";
-
-const categorias = [
-    {
-        nome : "Celulares e SmartFones",
-        tipo : ["Clássico", "Premium"]
-    },
-    {
-        nome : "Suplementos",
-        tipo : ["Clássico", "Premium"],
-    }
-]
 
 
-export default function BoxForm() {
+
+function BoxForm ({ categorias }) {
 
     const [custo, setCusto] = useState('')
-
+    const [porcentagemLucro, setPorcentagemLucro] = useState('')
     const [selectCat, setSelectCat] = useState(-1);
+    const [selectTipo, setSelectTipo] = useState(-1)
+    const [freteGratis, setFreteGratis] = useState(false)
+    const [custoFrete, setPriceFrete] = useState(0)
+    
 
-    const handlerCarregarTipo = function (e) {
-        const opcao = e.target.value;
+    function toggle() {
+        setFreteGratis(!freteGratis)
+    } 
+    
+    const valorTipo = (
+            selectCat > -1 
+            ? (categorias[selectCat][selectTipo])
+            : ''
+        )
+    const lucroBruto = (
+            porcentagemLucro !== ''
+            ? (custo * (porcentagemLucro / 100)) + custo
+            : 0
+        );
 
-        setSelectCat(opcao);
-    }
-
-    const [tipo, setTipo] = useState("")
+    const lucroLiquido = (
+            porcentagemLucro !== '' 
+            ? custo * (porcentagemLucro / 100) 
+            : 0
+        );
+    
+    const valorAnuncio = () => {
+            const calculoFreteGratis = (freteGratis ? custoFrete : 0) + lucroBruto 
+            const porcentagemCategoria = (selectTipo !== -1 ? ((calculoFreteGratis * valorTipo)) : 0)
+            const calculoValorAnuncio = calculoFreteGratis + porcentagemCategoria
+            
+            return(
+                calculoValorAnuncio < 79
+                && calculoValorAnuncio 
+                !== 0 
+                ? calculoValorAnuncio + 5 
+                : calculoValorAnuncio
+            ).toFixed(2)
+           
+        };
+        
+        
 
     return(
-        <div>
-            <form>
+        <>
             <div className="boxForm">
-                <label htmlFor="custo">Custo R$:</label>
+                <label htmlFor="custo">
+                    Custo:
+                </label>
                 <input 
                     type="number" 
                     name="custo" 
                     id="custo" 
                     value={custo}
-                    placeholder="Ex: 45.90" 
-                    onChange={(ev) => setCusto(ev.target.value)} 
+                    placeholder="R$" 
+                    onChange={(ev) => setCusto(parseFloat(ev.target.value))} 
                 />
-                <div className="cat">
-                <label htmlFor="categorias">Categoria:</label>
-                <select name="categorias" id="selCategorias" onClick={handlerCarregarTipo}>
-                    <option value={-1}>Selecione</option>
-                    {
-                        categorias.map((item, i) => (
-                            <option key={"categoria" + i} value={i}>{item.nome}</option>
-                        ) )
-                    }
-                </select>
-                <label htmlFor="tipo">Tipo: </label>
-                {
-                    
-                    selectCat == -1 && 
-                    (
-                            <label>
-                            <input type="radio" name="tipo" value=""/> Clássico
-                            <input type="radio" name="tipo" value="" /> Premium
-                            </label>
-                    ) 
-                }
-                {
-                    
-                    selectCat > -1 && 
-                    (
-                        categorias[selectCat].tipo.map((item, i) => (
-                            <label>
-                            <input type="radio" key={"tipo" + i} name="tipo" value={item} onChange={(ev) => setTipo(ev.target.value)} /> {item}
-                            </label>
-                        )
-
-                    ))
-                }
-                </div>
-                <ValorFrete />
+                <label htmlFor="price">
+                    Porcentagem de lucro:
+                </label>
+                <input 
+                    type="number" 
+                    name="porcentagemLucro"
+                    value={porcentagemLucro}
+                    placeholder="%"   
+                    onChange={(ev) => setPorcentagemLucro(parseFloat(ev.target.value))}
+                />
+                    <label htmlFor="selectCat">
+                        Categoria:
+                    </label>
+                    <select name="selectCat" id="selectCat" onClick={(ev) => setSelectCat(ev.target.value)}>
+                        <option value={-1}>Selecione</option>
+                        {
+                            categorias.map((item, i) => (
+                                <option key={"categoria" + i} value={i}>{item.nome}</option>
+                            ) )
+                        }   
+                    </select>
+                    <div>
+                    <label htmlFor="selectTipo"> Tipo de anúncio:</label>  
+                        <input type="radio" name="selectTipo" value="Clássico" onChange={(ev) => setSelectTipo((ev.target.value))}/> Clássico
+                        <input type="radio" name="selectTipo" value="Premium" onChange={(ev) => setSelectTipo(ev.target.value)} /> Premium              
+                    </div>
                 
-                {console.log(tipo)}
-
-
+                
+                <label htmlFor="freteGratis">
+                    <input type="checkbox" name="freteGratis" onClick={toggle} /> Frete grátis
+                </label> 
+                    
+                {
+                    freteGratis && (                        
+                        <>
+                            <label htmlFor="priceFrete">Quanto paga no frete gratis R$:</label>
+                            <input type="number" 
+                                name="custoFrete" 
+                                value={custoFrete} 
+                                placeholder="R$" 
+                                onChange={(ev) => 
+                                setPriceFrete(parseFloat(ev.target.value))} 
+                            />
+                        </>
+                       
+                    )
+                }
+                
 
             </div>
-            </form>
-            <BoxRes 
-                custo={custo}
-                idTipo={selectCat}
-                idTipo={tipo}
-                
+            <BoxRes
+                valorAnuncio={valorAnuncio} 
+                lucroBruto={lucroBruto.toFixed(2)}
+                lucroLiquido={lucroLiquido.toFixed(2)}                
             />
-
-        </div>
+        </>
     );
 }
+
+export default BoxForm;
