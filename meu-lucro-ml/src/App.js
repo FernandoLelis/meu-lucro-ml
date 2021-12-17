@@ -52,11 +52,6 @@ function App() {
       "Premium" : 0.19
     },
     {
-      "nome" : "Suplementos",
-      "Clássico" : 0.13,
-      "Premium" : 0.19
-    },
-    {
       "nome" : "Botas",
       "Clássico" : 0.14,
       "Premium" : 0.19

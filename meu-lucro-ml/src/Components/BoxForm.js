@@ -23,6 +23,7 @@ function BoxForm ({ categorias }) {
             ? (categorias[selectCat][selectTipo])
             : ''
         )
+    
     const lucroBruto = (
             porcentagemLucro !== ''
             ? (custo * (porcentagemLucro / 100)) + custo
@@ -37,15 +38,18 @@ function BoxForm ({ categorias }) {
     
     const valorAnuncio = () => {
             const calculoFreteGratis = (freteGratis ? custoFrete : 0) + lucroBruto 
-            const porcentagemCategoria = (selectTipo !== -1 ? ((calculoFreteGratis * valorTipo)) : 0)
-            const calculoValorAnuncio = calculoFreteGratis + porcentagemCategoria
             
-            return(
-                calculoValorAnuncio < 79
-                && calculoValorAnuncio 
-                !== 0 
-                ? calculoValorAnuncio + 5 
-                : calculoValorAnuncio
+            
+            
+            
+             return(
+
+                selectTipo !== -1 ? (
+                    (calculoFreteGratis + 5) / (1 - valorTipo) < 79
+                    && (calculoFreteGratis + 5) / (1 - valorTipo) !== 0 
+                    ? (calculoFreteGratis + 5) / (1 - valorTipo)
+                    : calculoFreteGratis / (1 - valorTipo)
+                    ) : 0                
             ).toFixed(2)
            
         };
